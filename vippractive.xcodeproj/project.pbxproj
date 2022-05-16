@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E70C6A128326A000007A598 /* NMCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70C6A028326A000007A598 /* NMCounter.swift */; };
 		2EA5B343282E612000931822 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5B342282E612000931822 /* DetailViewController.swift */; };
 		2EAD71D6282D199500512351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D5282D199500512351 /* AppDelegate.swift */; };
 		2EAD71D8282D199500512351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D7282D199500512351 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E70C6A028326A000007A598 /* NMCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMCounter.swift; sourceTree = "<group>"; };
 		2EA5B342282E612000931822 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2EAD71D2282D199500512351 /* vippractive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vippractive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAD71D5282D199500512351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E70C69F283269AB0007A598 /* networkModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E70C6A028326A000007A598 /* NMCounter.swift */,
+			);
+			path = networkModel;
+			sourceTree = "<group>";
+		};
 		2EAD71C9282D199500512351 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		2EAD71D4282D199500512351 /* vippractive */ = {
 			isa = PBXGroup;
 			children = (
+				2E70C69F283269AB0007A598 /* networkModel */,
 				2EAD71D5282D199500512351 /* AppDelegate.swift */,
 				2EAD71D7282D199500512351 /* SceneDelegate.swift */,
 				2EAD71D9282D199500512351 /* ViewController.swift */,
@@ -144,6 +155,7 @@
 				2EAD71DA282D199500512351 /* ViewController.swift in Sources */,
 				2EAD71D6282D199500512351 /* AppDelegate.swift in Sources */,
 				2EAD71D8282D199500512351 /* SceneDelegate.swift in Sources */,
+				2E70C6A128326A000007A598 /* NMCounter.swift in Sources */,
 				2EA5B343282E612000931822 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 //  MARK:  View
 
 protocol ViewSetup {
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
         viewController.router = router
         router.viewController = viewController
         router.dataStore = interactor
+        
     }
     
     
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        interactor?.fetchRandomNumber()
         // Do any additional setup after loading the view.
     }
     
@@ -58,13 +61,14 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
         interactor?.decrement()
     }
     
-
+    
     
 }
 
 // MARK: Interactor
 
 protocol HomeBusinessLogic {
+    func fetchRandomNumber()
     func increment()
     func decrement()
 }
@@ -74,11 +78,25 @@ protocol HomeDatastore {
 }
 
 class HomeInteractor: HomeBusinessLogic , HomeDatastore {
+    
+    
     var presenter: HomePresentationLogic?
+    let worker = HomeWorker()
     
     var count: Int = 0
     
     // todo set default func
+    func fetchRandomNumber() {
+        do {
+            try worker.fetchRandomNumber(onSuccess: { count in
+                self.count = count
+                self.presenter?.updateCount(count: count)
+            })
+        } catch {
+            print("OH M G ERROR")
+        }
+
+    }
     
     func increment() {
         count += 1
@@ -103,6 +121,8 @@ class HomePresenter: HomePresentationLogic {
     var viewController: HomeViewController?
     
     func updateCount(count: Int) {
+        //        let viewModel = Home.FetchRandomNumber.ViewModel(response.count)
+        //        viewController?.updateCount(viewModel: viewModel)
         let label = "\(count)"
         viewController?.updateCount(label: label)
     }
@@ -133,5 +153,30 @@ class HomeRouter: HomeRoutingLogic, HomeDataPassing {
     
     func passDataToDetailView(source: HomeViewController?, destination: DetailViewController?) {
         destination?.count = dataStore?.count
+    }
+}
+
+
+class HomeWorker {
+    func fetchRandomNumber(onSuccess: @escaping (Int)->()) throws {
+        let url = URL(string: "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=10&count=1")
+        print("going to get data")
+        URLSession.shared.dataTask(with: url!) { data, response, error in
+            if let data = data {
+                print("parsing data")
+                if let numb = try? JSONDecoder().decode([Int].self, from: data) {
+                    print("data parsed: ",numb)
+                    DispatchQueue.main.async {
+                        onSuccess(numb.first!)
+                    }
+                } else {
+                    print("Invalid Response")
+                }
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
+            }
+            print("Printing")
+            
+        }.resume()
     }
 }
