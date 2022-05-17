@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-struct NMCounter: Codable {
-    let numbers: [Int]
-    
-}
+// In my case api returns an array of int
+// So i do not require Decodable protocol
+// RW => Remote Worker
+typealias RWResponse = [Int]

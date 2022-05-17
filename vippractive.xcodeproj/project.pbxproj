@@ -11,10 +11,15 @@
 		2EA5B343282E612000931822 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5B342282E612000931822 /* DetailViewController.swift */; };
 		2EAD71D6282D199500512351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D5282D199500512351 /* AppDelegate.swift */; };
 		2EAD71D8282D199500512351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D7282D199500512351 /* SceneDelegate.swift */; };
-		2EAD71DA282D199500512351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D9282D199500512351 /* ViewController.swift */; };
+		2EAD71DA282D199500512351 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD71D9282D199500512351 /* HomeViewController.swift */; };
 		2EAD71DD282D199500512351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAD71DB282D199500512351 /* Main.storyboard */; };
 		2EAD71DF282D199600512351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EAD71DE282D199600512351 /* Assets.xcassets */; };
 		2EAD71E2282D199600512351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EAD71E0282D199600512351 /* LaunchScreen.storyboard */; };
+		2EB1E22328338642007438A0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E22228338642007438A0 /* HomeInteractor.swift */; };
+		2EB1E22528338692007438A0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E22428338692007438A0 /* HomePresenter.swift */; };
+		2EB1E227283386AC007438A0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E226283386AC007438A0 /* HomeRouter.swift */; };
+		2EB1E229283386D0007438A0 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E228283386D0007438A0 /* HomeWorker.swift */; };
+		2EB1E22B28338942007438A0 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E22A28338942007438A0 /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +28,16 @@
 		2EAD71D2282D199500512351 /* vippractive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vippractive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAD71D5282D199500512351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EAD71D7282D199500512351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2EAD71D9282D199500512351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EAD71D9282D199500512351 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2EAD71DC282D199500512351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EAD71DE282D199600512351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EAD71E1282D199600512351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EAD71E3282D199600512351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EB1E22228338642007438A0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		2EB1E22428338692007438A0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		2EB1E226283386AC007438A0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		2EB1E228283386D0007438A0 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		2EB1E22A28338942007438A0 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +78,10 @@
 		2EAD71D4282D199500512351 /* vippractive */ = {
 			isa = PBXGroup;
 			children = (
+				2EB1E2202833855C007438A0 /* Scenes */,
 				2E70C69F283269AB0007A598 /* networkModel */,
 				2EAD71D5282D199500512351 /* AppDelegate.swift */,
 				2EAD71D7282D199500512351 /* SceneDelegate.swift */,
-				2EAD71D9282D199500512351 /* ViewController.swift */,
 				2EAD71DB282D199500512351 /* Main.storyboard */,
 				2EAD71DE282D199600512351 /* Assets.xcassets */,
 				2EAD71E0282D199600512351 /* LaunchScreen.storyboard */,
@@ -79,6 +89,27 @@
 				2EA5B342282E612000931822 /* DetailViewController.swift */,
 			);
 			path = vippractive;
+			sourceTree = "<group>";
+		};
+		2EB1E2202833855C007438A0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2EB1E221283385C0007438A0 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2EB1E221283385C0007438A0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2EAD71D9282D199500512351 /* HomeViewController.swift */,
+				2EB1E22228338642007438A0 /* HomeInteractor.swift */,
+				2EB1E22428338692007438A0 /* HomePresenter.swift */,
+				2EB1E226283386AC007438A0 /* HomeRouter.swift */,
+				2EB1E228283386D0007438A0 /* HomeWorker.swift */,
+				2EB1E22A28338942007438A0 /* HomeModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,10 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EAD71DA282D199500512351 /* ViewController.swift in Sources */,
+				2EAD71DA282D199500512351 /* HomeViewController.swift in Sources */,
+				2EB1E229283386D0007438A0 /* HomeWorker.swift in Sources */,
+				2EB1E22528338692007438A0 /* HomePresenter.swift in Sources */,
 				2EAD71D6282D199500512351 /* AppDelegate.swift in Sources */,
 				2EAD71D8282D199500512351 /* SceneDelegate.swift in Sources */,
+				2EB1E22328338642007438A0 /* HomeInteractor.swift in Sources */,
+				2EB1E227283386AC007438A0 /* HomeRouter.swift in Sources */,
 				2E70C6A128326A000007A598 /* NMCounter.swift in Sources */,
+				2EB1E22B28338942007438A0 /* HomeModel.swift in Sources */,
 				2EA5B343282E612000931822 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
