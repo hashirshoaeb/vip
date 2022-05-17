@@ -25,8 +25,12 @@ class HomeInteractor: HomeBusinessLogic , HomeDatastore {
     
     // MARK: VIP setup
     
-    var presenter: HomePresentationLogic?
+    let presenter: HomePresentationLogic
     let worker = HomeWorker()
+    
+    init(presenter: HomePresentationLogic) {
+        self.presenter = presenter
+    }
     
     // MARK: States
     
@@ -38,25 +42,27 @@ class HomeInteractor: HomeBusinessLogic , HomeDatastore {
     // todo refactor, and loading, and all
     func fetchRandomNumber(request: Home.fetchRandomNumber.Request) {
         do {
+            self.presenter.startFetching()
             try worker.fetchRandomNumber(onSuccess: { number in
                 let response = Home.fetchRandomNumber.Response(number: number)
                 // todo wow! what was the benifit of getting raw response. lol
                 self.count = response.number
-                self.presenter?.presentFetchedNumber(response: response)
+                self.presenter.presentFetchedNumber(response: response)
             })
         } catch {
+            presenter.stopFetching()
             print("OH M G ERROR")
         }
     }
     
     func increment() {
         count += 1
-        presenter?.updateCount(count: count)
+        presenter.updateCount(count: count)
     }
     
     func decrement() {
         count -= 1
-        presenter?.updateCount(count: count)
+        presenter.updateCount(count: count)
     }
     
 }

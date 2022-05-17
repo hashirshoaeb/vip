@@ -46,6 +46,9 @@
                                     <segue destination="cZ4-vQ-yo2" kind="show" id="3fE-ym-7Jg"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-ZG-BlX">
+                                <rect key="frame" x="197" y="220" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,16 +56,22 @@
                             <constraint firstItem="gOJ-e9-0Cw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6rX-N6-sD7"/>
                             <constraint firstItem="gOJ-e9-0Cw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="8fl-ct-63g"/>
                             <constraint firstItem="cWY-VV-4dF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9oC-Gc-UO8"/>
+                            <constraint firstItem="Xun-ZG-BlX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="132" id="DUX-tp-lbE"/>
                             <constraint firstItem="cu6-pl-qqk" firstAttribute="top" secondItem="gOJ-e9-0Cw" secondAttribute="bottom" constant="225" id="Kqx-KX-E98"/>
                             <constraint firstItem="cu6-pl-qqk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lo1-8B-7pe"/>
                             <constraint firstItem="FmB-Y2-aHR" firstAttribute="top" secondItem="cu6-pl-qqk" secondAttribute="bottom" constant="33" id="NSB-Qs-MIy"/>
                             <constraint firstItem="FmB-Y2-aHR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T1o-fj-kNi"/>
                             <constraint firstItem="cWY-VV-4dF" firstAttribute="top" secondItem="FmB-Y2-aHR" secondAttribute="bottom" constant="128" id="T5X-T4-5Yf"/>
+                            <constraint firstItem="Xun-ZG-BlX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t6R-DE-FJk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vlI-HM-1cg"/>
                     <connections>
+                        <outlet property="decrementButton" destination="FmB-Y2-aHR" id="N2c-xd-nfY"/>
+                        <outlet property="detailButton" destination="cWY-VV-4dF" id="ddQ-g7-hW5"/>
+                        <outlet property="incrementButton" destination="cu6-pl-qqk" id="DEI-uJ-3P4"/>
                         <outlet property="label" destination="gOJ-e9-0Cw" id="eAy-Mt-37Z"/>
+                        <outlet property="progressIndicator" destination="Xun-ZG-BlX" id="5w0-ye-pLf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

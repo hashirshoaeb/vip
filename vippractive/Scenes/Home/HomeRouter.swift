@@ -14,12 +14,22 @@ protocol HomeRoutingLogic {
 }
 
 protocol HomeDataPassing {
-    var dataStore: HomeDatastore? { get }
+    var dataStore: HomeDatastore { get }
 }
 
 class HomeRouter: HomeRoutingLogic, HomeDataPassing {
-    var viewController: HomeViewController?
-    var dataStore: HomeDatastore?
+    
+    // MARK: VIP setup
+    
+    let viewController: HomeViewController
+    var dataStore: HomeDatastore
+    
+    init(viewController: HomeViewController, dataStore: HomeDatastore) {
+        self.viewController = viewController
+        self.dataStore = dataStore
+    }
+    
+    // MARK: Routing Logic
     
     func routeToDetailScreen(segue: UIStoryboardSegue?) {
         // todo refactor
@@ -31,6 +41,6 @@ class HomeRouter: HomeRoutingLogic, HomeDataPassing {
     
     func passDataToDetailView(source: HomeViewController?, destination: DetailViewController?) {
         // todo refactor 
-        destination?.count = dataStore?.count
+        destination?.count = dataStore.count
     }
 }

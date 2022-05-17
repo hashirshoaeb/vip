@@ -14,6 +14,10 @@ protocol ViewSetup {
 // Methods that we only want to expose for presenter to call
 protocol HomeDisplayLogic {
     func updateCount(viewModel: Home.fetchRandomNumber.ViewModel)
+    func showProgressIndicator()
+    func hideprogressIndicator()
+    func unableButtons()
+    func disableButtons()
 }
 
 class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
@@ -25,15 +29,12 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
     
     func setup() {
         let viewController = self
-        let interactor = HomeInteractor()
-        let presenter = HomePresenter()
-        let router = HomeRouter()
+        let presenter = HomePresenter(viewController: viewController)
+        let interactor = HomeInteractor(presenter: presenter)
+        let router = HomeRouter(viewController: viewController, dataStore: interactor)
+        // router.dataStore = interactor
         viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -55,10 +56,36 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
     // MARK: View
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var incrementButton: UIButton!
+    @IBOutlet weak var decrementButton: UIButton!
+    @IBOutlet weak var detailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = ""
+        progressIndicator.hidesWhenStopped = true
         loadRandomNumber()
+    }
+    
+    func showProgressIndicator() {
+        progressIndicator.startAnimating()
+    }
+    
+    func hideprogressIndicator() {
+        progressIndicator.stopAnimating()
+    }
+    
+    func unableButtons() {
+        incrementButton.isEnabled = true
+        decrementButton.isEnabled = true
+        detailButton.isEnabled = true
+    }
+    
+    func disableButtons() {
+        incrementButton.isEnabled = false
+        decrementButton.isEnabled = false
+        detailButton.isEnabled = false
     }
     
     func loadRandomNumber() {
